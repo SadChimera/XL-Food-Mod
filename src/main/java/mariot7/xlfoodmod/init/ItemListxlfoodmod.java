@@ -8,6 +8,7 @@ import mariot7.xlfoodmod.items.Cappuccino;
 import mariot7.xlfoodmod.items.Coffee;
 import mariot7.xlfoodmod.items.DeadlyEnergyDrink;
 import mariot7.xlfoodmod.items.HealthyEnergyDrink;
+import mariot7.xlfoodmod.items.Onion;
 import mariot7.xlfoodmod.items.SpeedyEnergyDrink;
 import mariot7.xlfoodmod.items.StealthyEnergyDrink;
 import mariot7.xlfoodmod.items.StrongEnergyDrink;
@@ -37,6 +38,7 @@ public class ItemListxlfoodmod {
 	public static Item cucumber;
 	public static Item lettuce_seeds;
 	public static Item lettuce;
+	public static Item onion;
 	public static Item tomato_seeds;
 	public static Item tomato;
 	public static Item strawberry_seeds;
@@ -147,6 +149,7 @@ public class ItemListxlfoodmod {
 		GameRegistry.register(cucumber = new ItemFoodxlfoodmod("cucumber", 1, 0.6F, false));
 		GameRegistry.register(lettuce_seeds = new ItemSeedsxlfoodmod(BlockListxlfoodmod.lettuce_plant, Blocks.FARMLAND, "lettuce_seeds"));
 		GameRegistry.register(lettuce = new ItemFoodxlfoodmod("lettuce", 1, 0.6F, false));
+		GameRegistry.register(onion = new Onion(1, 0.6F, BlockListxlfoodmod.onion_plant, Blocks.FARMLAND));
 		GameRegistry.register(tomato_seeds = new ItemSeedsxlfoodmod(BlockListxlfoodmod.tomato_plant, Blocks.FARMLAND, "tomato_seeds"));
 		GameRegistry.register(tomato = new ItemFoodxlfoodmod("tomato", 1, 0.6F, false));
 		GameRegistry.register(strawberry_seeds = new ItemSeedsxlfoodmod(BlockListxlfoodmod.strawberry_plant, Blocks.FARMLAND, "strawberry_seeds"));
