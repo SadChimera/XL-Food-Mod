@@ -112,3 +112,6 @@ item.beer.name=Beer
 item.coffee_cup.name=Coffee Cup
 item.coffee.name=Coffee
 item.cappuccino.name=Cappuccino
+
+xlfoodmod.config.title=XL Food Mod Config
+xlfoodmod.general.WorldGen.tooltip=World Gen
