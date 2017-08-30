@@ -114,4 +114,9 @@ item.coffee.name=Coffee
 item.cappuccino.name=Cappuccino
 
 xlfoodmod.config.title=XL Food Mod Config
-xlfoodmod.general.WorldGen.tooltip=World Gen
+xlfoodmod.general.worldgen=World Gen
+xlfoodmod.general.worldgen.tooltip=World Generation Settings
+xlfoodmod.general.worldgen.rockgen=Rock Salt Generation
+xlfoodmod.general.worldgen.grassgen=Grass Generation
+xlfoodmod.general.worldgen.flowergen=Vanilla Flower Generation
+
