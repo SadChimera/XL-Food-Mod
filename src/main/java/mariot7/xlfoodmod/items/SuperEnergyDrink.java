@@ -2,9 +2,12 @@ package mariot7.xlfoodmod.items;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import mariot7.xlfoodmod.Main;
 import mariot7.xlfoodmod.XLFoodModTab;
 import mariot7.xlfoodmod.init.ItemListxlfoodmod;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumAction;
@@ -12,20 +15,29 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class SuperEnergyDrink extends ItemFood {
 	
+	protected String name;
+	
 	public SuperEnergyDrink(String name, int amount, float saturation, boolean isWolfFood) {
 		super(amount, saturation, isWolfFood);
-		this.setUnlocalizedName(name);
-		this.setRegistryName(name);
 		this.setMaxStackSize(1);
 		this.setCreativeTab(XLFoodModTab.tabXLFoodMod);
+		this.name = name;
+		setUnlocalizedName(name);
+		setRegistryName(name);
 	}
 	
 	public SuperEnergyDrink(int amount, float saturation, boolean isWolfFood) {
         super(amount, saturation, isWolfFood);
     }
+	
+	public void registerItemModel() {
+		Main.proxy.registerItemRenderer(this, 0, name);
+	}
 	
 	protected void onFoodEaten(ItemStack itemstack, World world, EntityPlayer player) {
 		player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 3600, 2));
@@ -39,15 +51,16 @@ public class SuperEnergyDrink extends ItemFood {
 		player.inventory.addItemStackToInventory(new ItemStack(ItemListxlfoodmod.empty_can));
 	}
 	
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean adva) {
-		list.add("Jump Boost");
-		list.add("Speed");
-		list.add("Haste");
-		list.add("Water Breathing II");
-		list.add("Regeneration II");
-		list.add("Night Vision III");
-		list.add("Invisibility III");
-		list.add("Strength III (3:00)");
+	@SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		tooltip.add("Jump Boost");
+		tooltip.add("Speed");
+		tooltip.add("Haste");
+		tooltip.add("Water Breathing II");
+		tooltip.add("Regeneration II");
+		tooltip.add("Night Vision III");
+		tooltip.add("Invisibility III");
+		tooltip.add("Strength III (3:00)");
 	}
 	
 	@Override

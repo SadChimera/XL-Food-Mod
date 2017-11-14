@@ -17,7 +17,7 @@ import net.minecraftforge.common.IPlantable;
 public class ItemSeedFoodxlfoodmod extends ItemFood implements IPlantable {
 	
 	public final Block crops;
-    public final Block soilId;
+	public final Block soilId;
 
     public ItemSeedFoodxlfoodmod(int healAmount, float saturation, Block crops, Block soil)
     {

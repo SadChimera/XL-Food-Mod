@@ -14,17 +14,24 @@ import net.minecraft.world.World;
 
 public class Cappuccino extends ItemFood {
 	
+	protected String name;
+	
 	public Cappuccino(String name, int amount, float saturation, boolean isWolfFood) {
 		super(amount, saturation, isWolfFood);
-		this.setUnlocalizedName(name);
-		this.setRegistryName(name);
 		this.setMaxStackSize(1);
 		this.setCreativeTab(XLFoodModTab.tabXLFoodMod);
+		this.name = name;
+		setUnlocalizedName(name);
+		setRegistryName(name);
 	}
 	
 	public Cappuccino(int amount, float saturation, boolean isWolfFood) {
         super(amount, saturation, isWolfFood);
     }
+	
+	public void registerItemModel() {
+		Main.proxy.registerItemRenderer(this, 0, name);
+	}
 	
 	public void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
 		player.inventory.addItemStackToInventory(new ItemStack(ItemListxlfoodmod.coffee_cup));

@@ -6,17 +6,25 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 
-public class ItemSeedsxlfoodmod extends ItemSeeds{
+public class ItemSeedsxlfoodmod extends ItemSeeds {
+	
+	protected String name;
 	
 	public ItemSeedsxlfoodmod(Block crops, Block soil, String name) {
 		super(crops, soil);
-		this.setUnlocalizedName(name);
-		this.setRegistryName(name);
+		this.name = name;
+		setUnlocalizedName(name);
+		setRegistryName(name);
 		this.setCreativeTab(XLFoodModTab.tabXLFoodMod);
 	}
 	
 	 public static void addGrassSeed(ItemStack seed, int weight) {
 		 
 	 }
+	 
+	 public void registerItemModel() {
+			Main.proxy.registerItemRenderer(this, 0, name);
+		}
 	
+	 
 }

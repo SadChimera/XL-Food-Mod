@@ -1,0 +1,31 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"OU ",
+		"PCE",
+		" S "
+	],
+	"key": {
+	     "O": {
+			"item": "xlfoodmod:onion"
+		},
+		"U": {
+			"item": "xlfoodmod:cucumber"
+		},
+		"P": {
+			"item": "xlfoodmod:pepper"
+		},
+           "C": {
+			"item": "minecraft:cooked_chicken"
+		},
+	      "E": {
+			"item": "minecraft:egg"
+		},
+	      "S": {
+			"item": "xlfoodmod:salad_bowl"
+		}
+	},
+	"result": {
+		"item": "xlfoodmod:chicken_salad"
+	}
+}

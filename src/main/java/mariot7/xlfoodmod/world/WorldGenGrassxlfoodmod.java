@@ -22,7 +22,7 @@ public class WorldGenGrassxlfoodmod extends WorldGenerator {
 		{
 			BlockPos bushPos = new BlockPos(pos.getX(), y, pos.getZ());
 			IBlockState toReplace = worldIn.getBlockState(bushPos);
-            if(toReplace.getBlock() == Blocks.AIR || toReplace.getMaterial() == Material.PLANTS)
+			if(toReplace.getBlock() == Blocks.AIR || toReplace.getMaterial() == Material.PLANTS)
 			{
 				worldIn.setBlockState(bushPos, grass.getDefaultState(), 2);
 			}  
@@ -42,6 +42,5 @@ public class WorldGenGrassxlfoodmod extends WorldGenerator {
 
 		return y;
 	}
-	
 
 }

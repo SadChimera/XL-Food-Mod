@@ -9,6 +9,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -16,8 +17,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import scala.util.Random;
 
-public class ChocolateCake extends BlockCake{
+public class ChocolateCake extends BlockCake {
 	
+	protected String name;
 	int foodlevel;
 	float saturation;
 	
@@ -29,8 +31,17 @@ public class ChocolateCake extends BlockCake{
 		this.setHardness(0.5F);
 		this.setSoundType(SoundType.CLOTH);
 		this.setCreativeTab(XLFoodModTab.tabXLFoodMod);
-		this.setUnlocalizedName(name);
-		this.setRegistryName(name);
+		this.name = name;
+		setUnlocalizedName(name);
+		setRegistryName(name);
+	}
+	
+	public void registerItemModel(Item itemBlock) {
+		Main.proxy.registerItemRenderer(itemBlock, 0, name);
+	}
+	
+	public Item createItemBlock() {
+		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
 	
 	public void eatCake(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player)

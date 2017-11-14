@@ -25,121 +25,98 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.RegistryEvent.Register;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.registries.IForgeRegistry;
 
 public class BlockListxlfoodmod {
 	
-	public static Block rock_salt;
-	public static ItemBlock ibrock_salt;
-	public static Block grass;
-	public static ItemBlock ibgrass;
-	public static Block vanilla_flower;
-	public static ItemBlock ibvanilla_flower;
-	public static Block rice_plant;
-	public static ItemBlock ibrice_plant;
-	public static Block pepper_plant;
-	public static ItemBlock ibpepper_plant;
-	public static Block corn_plant;
-	public static ItemBlock ibcorn_plant;
-	public static Block cucumber_plant;
-	public static ItemBlock ibcucumber_plant;
-	public static Block lettuce_plant;
-	public static ItemBlock iblettuce_plant;
-	public static Block onion_plant;
-	public static ItemBlock ibonion_plant;
-	public static Block tomato_plant;
-	public static ItemBlock ibtomato_plant;
-	public static Block strawberry_plant;
-	public static ItemBlock ibstrawberry_plant;
-	public static Block chocolate_cake;
-	public static ItemBlock ibchocolate_cake;
-	public static Block oreo_cake;
-	public static ItemBlock iboreo_cake;
-	public static Block cheese_cake;
-	public static ItemBlock ibcheese_cake;
-	public static Block nether_cake;
-	public static ItemBlock ibnether_cake;
-	public static Block strawberry_cake;
-	public static ItemBlock ibstrawberry_cake;
-	public static Block pizza;
-	public static ItemBlock ibpizza;
-
-
-	public static void initBlocks()
-	{
+	public static RockSalt rock_salt = new RockSalt("rock_salt", Material.ROCK);
+	public static Grass grass = new Grass("grass", Material.GRASS, 0, 0);
+	public static VanillaFlower vanilla_flower = new VanillaFlower("vanilla_flower", Material.GRASS, 0, 0);
+	public static Rice rice_plant = new Rice("rice_plant");
+	public static Pepper pepper_plant = new Pepper("pepper_plant");
+	public static Corn corn_plant = new Corn("corn_plant");
+	public static Cucumber cucumber_plant = new Cucumber("cucumber_plant");
+	public static Lettuce lettuce_plant = new Lettuce("lettuce_plant");
+	public static Onion onion_plant = new Onion("onion_plant");
+	public static Tomato tomato_plant = new Tomato("tomato_plant");
+	public static Strawberry strawberry_plant = new Strawberry("strawberry_plant");
+	public static ChocolateCake chocolate_cake = new ChocolateCake("chocolate_cake", 14, 2.8F);
+	public static OreoCake oreo_cake = new OreoCake("oreo_cake", 14, 2.8F);
+	public static CheeseCake cheese_cake = new CheeseCake("cheese_cake", 14, 2.8F);
+	public static NetherCake nether_cake = new NetherCake("nether_cake", 14, 2.8F);
+	public static StrawberryCake strawberry_cake = new StrawberryCake("strawberry_cake", 14, 2.8F);
+	public static Pizza pizza = new Pizza("pizza", 14, 2.8F);
+	
+	
+	public static void register(IForgeRegistry<Block> registry) {
 		
-		rock_salt = new RockSalt("rock_salt", Material.ROCK);	 
-		ibrock_salt = (ItemBlock) new ItemBlock(rock_salt);
-		grass = new Grass("grass", Material.GRASS, 0, 0);	  
-		ibgrass = (ItemBlock) new ItemBlock(grass);
-		vanilla_flower = new VanillaFlower("vanilla_flower", Material.GRASS, 0, 0);	  
-		ibvanilla_flower = (ItemBlock) new ItemBlock(vanilla_flower);
-		rice_plant = new Rice("rice_plant");	  
-		ibrice_plant = (ItemBlock) new ItemBlock(rice_plant);
-		pepper_plant = new Pepper("pepper_plant");	  
-		ibpepper_plant = (ItemBlock) new ItemBlock(pepper_plant);
-		corn_plant = new Corn("corn_plant");	  
-		ibcorn_plant = (ItemBlock) new ItemBlock(corn_plant);
-		cucumber_plant = new Cucumber("cucumber_plant");	  
-		ibcucumber_plant = (ItemBlock) new ItemBlock(cucumber_plant);
-		lettuce_plant = new Lettuce("lettuce_plant");	  
-		iblettuce_plant = (ItemBlock) new ItemBlock(lettuce_plant);
-		onion_plant = new Onion("onion_plant");	  
-		ibonion_plant = (ItemBlock) new ItemBlock(onion_plant);
-		tomato_plant = new Tomato("tomato_plant");	  
-		ibtomato_plant = (ItemBlock) new ItemBlock(tomato_plant);
-		strawberry_plant = new Strawberry("strawberry_plant");	  
-		ibstrawberry_plant = (ItemBlock) new ItemBlock(strawberry_plant);
-		chocolate_cake = new ChocolateCake("chocolate_cake", 14, 2.8F);	  
-		ibchocolate_cake = (ItemBlock) new ItemBlock(chocolate_cake);
-		oreo_cake = new OreoCake("oreo_cake", 14, 2.8F);	  
-		iboreo_cake = (ItemBlock) new ItemBlock(oreo_cake);
-		cheese_cake = new CheeseCake("cheese_cake", 14, 2.8F);	  
-		ibcheese_cake = (ItemBlock) new ItemBlock(cheese_cake);
-		nether_cake = new NetherCake("nether_cake", 14, 2.8F);	  
-		ibnether_cake = (ItemBlock) new ItemBlock(nether_cake);
-		strawberry_cake = new StrawberryCake("strawberry_cake", 14, 2.8F);	  
-		ibstrawberry_cake = (ItemBlock) new ItemBlock(strawberry_cake);
-		pizza = new Pizza("pizza", 14, 2.8F);	  
-		ibpizza = (ItemBlock) new ItemBlock(pizza);
-		
-		GameRegistry.register(rock_salt);
-		GameRegistry.register(ibrock_salt, rock_salt.getRegistryName());
-		GameRegistry.register(grass);
-		GameRegistry.register(ibgrass, grass.getRegistryName());
-		GameRegistry.register(vanilla_flower);
-		GameRegistry.register(ibvanilla_flower, vanilla_flower.getRegistryName());
-		GameRegistry.register(rice_plant);
-		GameRegistry.register(ibrice_plant, rice_plant.getRegistryName());
-		GameRegistry.register(pepper_plant);
-		GameRegistry.register(ibpepper_plant, pepper_plant.getRegistryName());
-		GameRegistry.register(corn_plant);
-		GameRegistry.register(ibcorn_plant, corn_plant.getRegistryName());
-		GameRegistry.register(cucumber_plant);
-		GameRegistry.register(ibcucumber_plant, cucumber_plant.getRegistryName());
-		GameRegistry.register(lettuce_plant);
-		GameRegistry.register(iblettuce_plant, lettuce_plant.getRegistryName());
-		GameRegistry.register(onion_plant);
-		GameRegistry.register(ibonion_plant, onion_plant.getRegistryName());
-		GameRegistry.register(tomato_plant);
-		GameRegistry.register(ibtomato_plant, tomato_plant.getRegistryName());
-		GameRegistry.register(strawberry_plant);
-		GameRegistry.register(ibstrawberry_plant, strawberry_plant.getRegistryName());
-		GameRegistry.register(chocolate_cake);
-		GameRegistry.register(ibchocolate_cake, chocolate_cake.getRegistryName());
-		GameRegistry.register(oreo_cake);
-		GameRegistry.register(iboreo_cake, oreo_cake.getRegistryName());
-		GameRegistry.register(cheese_cake);
-		GameRegistry.register(ibcheese_cake, cheese_cake.getRegistryName());
-		GameRegistry.register(nether_cake);
-		GameRegistry.register(ibnether_cake, nether_cake.getRegistryName());
-		GameRegistry.register(strawberry_cake);
-		GameRegistry.register(ibstrawberry_cake, strawberry_cake.getRegistryName());
-		GameRegistry.register(pizza);
-		GameRegistry.register(ibpizza, pizza.getRegistryName());
+		registry.registerAll(rock_salt);
+		registry.registerAll(grass);
+		registry.registerAll(vanilla_flower);
+		registry.registerAll(rice_plant);
+		registry.registerAll(pepper_plant);
+		registry.registerAll(corn_plant);
+		registry.registerAll(cucumber_plant);
+		registry.registerAll(lettuce_plant);
+		registry.registerAll(onion_plant);
+		registry.registerAll(tomato_plant);
+		registry.registerAll(strawberry_plant);
+		registry.registerAll(chocolate_cake);
+		registry.registerAll(oreo_cake);
+		registry.registerAll(cheese_cake);
+		registry.registerAll(nether_cake);
+		registry.registerAll(strawberry_cake);
+		registry.registerAll(pizza);
 		
 	}
 
+	public static void registerItemBlocks(IForgeRegistry<Item> registry) {
+		
+		registry.register(rock_salt.createItemBlock());
+		registry.register(grass.createItemBlock());
+		registry.register(vanilla_flower.createItemBlock());
+		registry.register(rice_plant.createItemBlock());
+		registry.register(pepper_plant.createItemBlock());
+		registry.register(corn_plant.createItemBlock());
+		registry.register(cucumber_plant.createItemBlock());
+		registry.register(lettuce_plant.createItemBlock());
+		registry.register(onion_plant.createItemBlock());
+		registry.register(tomato_plant.createItemBlock());
+		registry.register(strawberry_plant.createItemBlock());
+		registry.register(chocolate_cake.createItemBlock());
+		registry.register(oreo_cake.createItemBlock());
+		registry.register(cheese_cake.createItemBlock());
+		registry.register(nether_cake.createItemBlock());
+		registry.register(strawberry_cake.createItemBlock());
+		registry.register(pizza.createItemBlock());
+		
+	}
+
+	public static void registerModels() {
+		
+		rock_salt.registerItemModel(Item.getItemFromBlock(rock_salt));
+		grass.registerItemModel(Item.getItemFromBlock(grass));
+		vanilla_flower.registerItemModel(Item.getItemFromBlock(vanilla_flower));
+		rice_plant.registerItemModel(Item.getItemFromBlock(rice_plant));
+		pepper_plant.registerItemModel(Item.getItemFromBlock(pepper_plant));
+		corn_plant.registerItemModel(Item.getItemFromBlock(corn_plant));
+		cucumber_plant.registerItemModel(Item.getItemFromBlock(cucumber_plant));
+		lettuce_plant.registerItemModel(Item.getItemFromBlock(lettuce_plant));
+		onion_plant.registerItemModel(Item.getItemFromBlock(onion_plant));
+		tomato_plant.registerItemModel(Item.getItemFromBlock(tomato_plant));
+		strawberry_plant.registerItemModel(Item.getItemFromBlock(strawberry_plant));
+		chocolate_cake.registerItemModel(Item.getItemFromBlock(chocolate_cake));
+		oreo_cake.registerItemModel(Item.getItemFromBlock(oreo_cake));
+		cheese_cake.registerItemModel(Item.getItemFromBlock(cheese_cake));
+		nether_cake.registerItemModel(Item.getItemFromBlock(nether_cake));
+		strawberry_cake.registerItemModel(Item.getItemFromBlock(strawberry_cake));
+		pizza.registerItemModel(Item.getItemFromBlock(pizza));
+	
+	}
+	     
 	
 }

@@ -16,15 +16,15 @@ public class WorldGenVanillaFlowerxlfoodmod extends WorldGenerator {
 	@Override
 	public boolean generate(World worldIn, Random rand, BlockPos pos) 
 	{
-		Block vanilla_flower = rand.nextBoolean() ? BlockListxlfoodmod.vanilla_flower : BlockListxlfoodmod.vanilla_flower;
+		Block grass = rand.nextBoolean() ? BlockListxlfoodmod.vanilla_flower : BlockListxlfoodmod.vanilla_flower;
 		int y = 1 + getGroundFromAbove(worldIn, pos.getX(), pos.getZ());
 		if(y >= pos.getY())
 		{
 			BlockPos bushPos = new BlockPos(pos.getX(), y, pos.getZ());
 			IBlockState toReplace = worldIn.getBlockState(bushPos);
-            if(toReplace.getBlock() == Blocks.AIR || toReplace.getMaterial() == Material.PLANTS)
+			if(toReplace.getBlock() == Blocks.AIR || toReplace.getMaterial() == Material.PLANTS)
 			{
-				worldIn.setBlockState(bushPos, vanilla_flower.getDefaultState(), 2);
+				worldIn.setBlockState(bushPos, grass.getDefaultState(), 2);
 			}  
 		}
 		return false;
@@ -42,6 +42,5 @@ public class WorldGenVanillaFlowerxlfoodmod extends WorldGenerator {
 
 		return y;
 	}
-	
 
 }
